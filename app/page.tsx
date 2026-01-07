@@ -1,49 +1,729 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-center gap-8 py-32 px-16 bg-white dark:bg-black">
-        <svg
-          viewBox="0 0 69 26"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="fill-black dark:fill-white"
-        >
-          <path d="M13.7917 24.3604C12.4622 25.3549 10.7895 25.8884 8.82032 25.8884C6.66971 25.8884 4.87412 25.3543 3.47587 24.3604H13.7917Z"></path>
-          <path d="M27.8204 24.3604C26.802 25.2894 25.534 25.8884 24.1756 25.8884C22.4188 25.8884 21.02 25.339 20.108 24.3604H27.8204Z"></path>
-          <path d="M44.5726 24.3604C43.0194 25.3511 41.0762 25.8884 38.8367 25.8884C36.5972 25.8884 34.6541 25.3511 33.1008 24.3604H44.5726Z"></path>
-          <path d="M6.10452 21.7838C6.64469 22.5408 7.32257 23.0964 8.12748 23.4234H2.40008C1.94592 22.9414 1.55318 22.3936 1.22435 21.7838H6.10452Z"></path>
-          <path d="M15.9753 21.7838C15.6457 22.3936 15.2602 22.9415 14.8213 23.4234H11.8608C12.7015 23.0973 13.4264 22.543 14.0227 21.7838H15.9753Z"></path>
-          <path d="M23.2016 21.7838C23.3205 22.5267 23.6272 23.0906 24.0875 23.4234H19.4507C19.2008 22.9377 19.0348 22.3887 18.9611 21.7838H23.2016Z"></path>
-          <path d="M29.6415 21.7838C29.3929 22.3649 29.0672 22.9198 28.6798 23.4234H26.2913C26.809 23.0921 27.2884 22.5303 27.6965 21.7838H29.6415Z"></path>
-          <path d="M34.7756 21.7838C35.1876 22.498 35.7076 23.0447 36.3327 23.4234H31.8901C31.3725 22.9406 30.9182 22.3925 30.5327 21.7838H34.7756Z"></path>
-          <path d="M47.1403 21.7838C46.7548 22.3925 46.3005 22.9406 45.7829 23.4234H41.3477C41.9765 23.0447 42.5011 22.4979 42.9178 21.7838H47.1403Z"></path>
-          <path d="M4.97293 19.2072C5.1237 19.8073 5.31836 20.3552 5.55486 20.8468H0.788749C0.585257 20.3346 0.420002 19.7875 0.293988 19.2072H4.97293Z"></path>
-          <path d="M16.9458 19.2072C16.8042 19.7876 16.6278 20.3347 16.4179 20.8468H14.6376C14.9063 20.3562 15.1356 19.8083 15.3244 19.2072H16.9458Z"></path>
-          <path d="M23.146 20.8468H18.9172V19.2072H23.146V20.8468Z"></path>
-          <path d="M33.879 19.2072C33.9937 19.8097 34.1454 20.3562 34.3337 20.8468H30.0171C30.0067 20.8251 29.9961 20.8035 29.9859 20.7817C29.9802 20.8034 29.9741 20.8251 29.9682 20.8468H28.1326C28.3289 20.3505 28.4984 19.8012 28.6354 19.2072H33.879Z"></path>
-          <path d="M48.2582 19.2072C48.1017 19.7867 47.8998 20.3339 47.6561 20.8468H43.3651C43.5558 20.3562 43.71 19.8097 43.8264 19.2072H48.2582Z"></path>
-          <path d="M4.61127 16.6306C4.63883 17.207 4.69545 17.7543 4.78 18.2703H0.128844C0.056725 17.7466 0.0134713 17.1997 0 16.6306H4.61127Z"></path>
-          <path d="M17.2781 17.2464C17.2423 17.5969 17.1958 17.9383 17.1392 18.2703H15.5758C15.6704 17.8506 15.7479 17.4096 15.8073 16.9484L17.2781 17.2464Z"></path>
-          <path d="M23.146 18.2703H18.9172V16.6306H23.146V18.2703Z"></path>
-          <path d="M33.6225 16.6306C33.6374 17.2111 33.6755 17.7576 33.7361 18.2703H28.8183C28.902 17.7493 28.9618 17.2012 28.9946 16.6306H33.6225Z"></path>
-          <path d="M48.643 16.6306C48.6191 17.199 48.5595 17.7459 48.4664 18.2703H43.9719C44.0335 17.7576 44.072 17.211 44.0873 16.6306H48.643Z"></path>
-          <path d="M23.146 6.89115H28.9193V8.56739H23.146V15.6937H18.9172V8.56739H15.8592L16.4324 14.49L14.9983 14.6762C14.0055 9.75933 13.1963 8.00865 9.8132 7.85966C6.45181 7.85968 4.61542 10.5441 4.592 15.6937H0.00268892C0.175472 9.48821 3.32011 6.14613 8.93079 6.14613C9.77653 6.14614 10.7326 6.25781 11.8725 6.51853C13.152 6.78855 14.2702 6.89115 15.697 6.89115C19.7286 6.89112 21.3074 4.20914 22.0796 0H23.146V6.89115Z"></path>
-          <path d="M38.8367 6.14613C44.6383 6.14616 48.4971 9.86614 48.6497 15.6937H44.092C44.0101 10.6034 42.1785 7.97132 38.8367 7.97128C35.5308 7.97128 33.6998 10.6034 33.618 15.6937H29.0235C29.1761 9.86611 33.0351 6.14613 38.8367 6.14613Z"></path>
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M58.5142 19.14C59.5559 19.14 60.9024 19.5091 60.9532 22.5701H58.3236C57.7138 22.5701 57.3201 22.734 57.3709 23.3763C57.5233 25.2074 57.9934 25.385 58.6413 25.385C59.3145 25.385 59.937 25.18 60.2545 23.9229C60.28 23.8546 60.4706 23.8545 60.5468 23.8545C60.6103 23.8545 60.8389 23.8546 60.8135 23.9229C60.4197 25.6993 59.6702 26 58.6413 26C57.5996 26 55.9862 25.631 55.9862 22.5701C55.9862 19.4954 57.536 19.14 58.5142 19.14ZM58.5142 19.5773C57.9044 19.5773 57.4217 19.9736 57.3455 22.0917H59.5813C59.5051 19.9737 59.1367 19.5773 58.5142 19.5773Z"
-          ></path>
-          <path d="M63.258 19.2631C63.3215 19.2631 63.3342 19.4543 63.3342 19.509C63.3342 19.55 63.3216 19.7276 63.258 19.7276C62.6737 19.7276 62.7118 20.083 62.8262 20.5066C62.9913 21.1899 63.5121 22.9663 63.6137 23.4309C63.6391 23.5676 63.7662 23.5539 63.817 23.4309L65.0238 20.1786C65.0365 20.124 65.1763 20.124 65.2525 20.124C65.3287 20.124 65.4685 20.124 65.4939 20.1786L66.6625 23.4309C66.7006 23.5539 66.8404 23.5539 66.8658 23.4309L67.6661 20.5203C67.7931 20.083 67.8186 19.7276 67.2342 19.7276C67.1834 19.7276 67.1707 19.5773 67.1707 19.509C67.1707 19.427 67.1834 19.2631 67.2342 19.2631H68.9238C68.9746 19.2631 69 19.427 69 19.509C69 19.5773 68.9746 19.7276 68.9238 19.7276C68.3903 19.7276 68.2378 20.1239 68.1235 20.5339C67.9965 20.9438 66.5613 25.8484 66.5482 25.9043C66.5228 25.959 66.4339 25.959 66.3704 25.959C66.3069 25.959 66.2179 25.9317 66.2052 25.9043C66.1036 25.426 65.0619 22.6247 64.9222 22.1054C64.9095 21.9824 64.7443 21.9824 64.7062 22.1191C64.6554 22.2286 63.3347 25.8485 63.3216 25.9043C63.3089 25.959 63.2326 25.959 63.1564 25.959C63.0802 25.959 63.004 25.959 62.9786 25.9043L61.4033 20.5339C61.2763 20.0693 61.1111 19.7276 60.5649 19.7276C60.5268 19.7276 60.5014 19.591 60.5014 19.509C60.5014 19.4133 60.5268 19.2631 60.5649 19.2631H63.258Z"></path>
-          <path d="M53.2441 19.1264C54.0064 19.1264 55.2766 19.3724 55.2766 21.2718V24.5105C55.2766 24.9204 55.3275 25.3167 55.8991 25.3167C55.9499 25.3167 55.9627 25.4807 55.9627 25.549C55.9627 25.631 55.9499 25.795 55.8991 25.795H53.2823C53.2441 25.795 53.2187 25.6584 53.2187 25.5627C53.2187 25.4671 53.2314 25.3167 53.2823 25.3167C53.8666 25.3167 53.892 24.9204 53.892 24.5105V21.5178C53.892 19.9053 53.4347 19.8507 53.0536 19.8507C52.4184 19.8507 52.2024 20.3699 52.0119 20.7525V24.5105C52.0119 24.9341 52.0627 25.3167 52.6598 25.3167C52.7106 25.3167 52.7233 25.508 52.7233 25.549C52.7233 25.6037 52.6979 25.795 52.6598 25.795H49.8777C49.8269 25.795 49.8015 25.6583 49.8015 25.549C49.8015 25.4671 49.8269 25.3168 49.8777 25.3167C50.6526 25.3167 50.7034 24.9068 50.7034 24.5105V20.5476C50.7034 20.0693 50.5764 19.7413 49.8777 19.7413C49.8269 19.7413 49.8015 19.6047 49.8015 19.4954C49.8015 19.3861 49.8269 19.2631 49.8777 19.2631H51.6308C51.8213 19.2631 51.9611 19.3314 51.9992 19.673C52.0119 19.7687 52.0754 19.796 52.1389 19.7276C52.3422 19.4817 52.6598 19.1264 53.2441 19.1264Z"></path>
-          <path d="M48.0394 25.9621H46.8V24.629H48.0394V25.9621Z"></path>
-        </svg>
-        <div className="flex flex-col items-center text-center">
-          <h1 className="max-w-xs text-2xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Ready for your first task
-          </h1>
-        </div>
+    <div className="min-h-screen bg-white">
+      <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <span className="text-xl font-bold text-gray-900">ТехРемонт</span>
+          </div>
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Услуги</a>
+            <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">О нас</a>
+            <a href="#prices" className="text-gray-700 hover:text-blue-600 transition-colors">Цены</a>
+            <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Контакты</a>
+          </div>
+          <a href="#contact" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+            Связаться
+          </a>
+        </nav>
+      </header>
+
+      <main className="pt-20">
+        <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-20 md:py-32">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                Профессиональный ремонт техники
+              </h1>
+              <p className="text-xl text-gray-700 mb-8">
+                Быстрый и качественный ремонт смартфонов, ноутбуков, планшетов и другой электроники. 
+                Гарантия на все виды работ.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#services" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
+                  Наши услуги
+                </a>
+                <a href="tel:+79999999999" className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors">
+                  Позвонить сейчас
+                </a>
+              </div>
+              <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="text-4xl font-bold text-blue-600">5+</div>
+                  <div className="text-gray-600 mt-2">лет опыта</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-blue-600">10000+</div>
+                  <div className="text-gray-600 mt-2">довольных клиентов</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-blue-600">95%</div>
+                  <div className="text-gray-600 mt-2">ремонтов в день обращения</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Наши услуги
+              </h2>
+              <p className="text-xl text-gray-600">
+                Ремонтируем всю современную электронику
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Ремонт смартфонов</h3>
+                <p className="text-gray-600 mb-4">
+                  Замена экранов, батарей, камер. Ремонт после попадания воды. 
+                  Работаем с iPhone, Samsung, Xiaomi и другими брендами.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Замена дисплея от 1 часа
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Оригинальные запчасти
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Гарантия до 1 года
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Ремонт ноутбуков</h3>
+                <p className="text-gray-600 mb-4">
+                  Диагностика, чистка от пыли, замена термопасты, восстановление после залития, 
+                  замена матрицы, клавиатуры.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Бесплатная диагностика
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Срочный ремонт за 24 часа
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Установка Windows/Linux
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Ремонт планшетов</h3>
+                <p className="text-gray-600 mb-4">
+                  Замена тачскрина, дисплея, аккумулятора. Ремонт iPad, Samsung Galaxy Tab 
+                  и других планшетов.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Работаем с iPad любых моделей
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Качественные комплектующие
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Гарантия качества
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Ремонт компьютеров</h3>
+                <p className="text-gray-600 mb-4">
+                  Апгрейд системы, чистка, замена комплектующих, восстановление данных, 
+                  настройка ПО.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Модернизация ПК
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Сборка на заказ
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Удаление вирусов
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Другая техника</h3>
+                <p className="text-gray-600 mb-4">
+                  Ремонт игровых консолей, умных часов, электронных книг, 
+                  портативных колонок и наушников.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    PlayStation, Xbox, Nintendo
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Apple Watch, Garmin, Fitbit
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Kindle, Pocketbook и другие
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Восстановление данных</h3>
+                <p className="text-gray-600 mb-4">
+                  Восстановление информации с поврежденных носителей: HDD, SSD, 
+                  флешек, карт памяти.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Восстановление фото и видео
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Работа с любыми носителями
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Конфиденциальность данных
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+                Почему выбирают нас
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Быстрый ремонт</h3>
+                    <p className="text-gray-600">
+                      95% ремонтов выполняется в течение одного дня. 
+                      Экспресс-ремонт от 30 минут.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Гарантия качества</h3>
+                    <p className="text-gray-600">
+                      Официальная гарантия на все виды работ и запчасти до 12 месяцев.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Честные цены</h3>
+                    <p className="text-gray-600">
+                      Прозрачное ценообразование. Никаких скрытых платежей. 
+                      Бесплатная диагностика.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Опытные мастера</h3>
+                    <p className="text-gray-600">
+                      Сертифицированные специалисты с опытом работы от 5 лет. 
+                      Постоянное обучение.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Оригинальные запчасти</h3>
+                    <p className="text-gray-600">
+                      Используем только качественные комплектующие от 
+                      проверенных поставщиков.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Бесплатная консультация</h3>
+                    <p className="text-gray-600">
+                      Звоните или пишите - наши специалисты ответят на все вопросы 
+                      и помогут с выбором.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="prices" className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Популярные услуги и цены
+              </h2>
+              <p className="text-xl text-gray-600">
+                Окончательная стоимость определяется после диагностики
+              </p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                <div className="divide-y divide-gray-200">
+                  <div className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Замена экрана iPhone</h4>
+                      <p className="text-sm text-gray-600">Оригинальный дисплей, с гарантией</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-blue-600">от 3 500 ₽</div>
+                      <div className="text-sm text-gray-500">1-2 часа</div>
+                    </div>
+                  </div>
+                  <div className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Замена батареи iPhone</h4>
+                      <p className="text-sm text-gray-600">Увеличенная емкость</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-blue-600">от 1 800 ₽</div>
+                      <div className="text-sm text-gray-500">30 минут</div>
+                    </div>
+                  </div>
+                  <div className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Замена экрана Samsung</h4>
+                      <p className="text-sm text-gray-600">AMOLED дисплей</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-blue-600">от 2 500 ₽</div>
+                      <div className="text-sm text-gray-500">1-2 часа</div>
+                    </div>
+                  </div>
+                  <div className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Чистка ноутбука от пыли</h4>
+                      <p className="text-sm text-gray-600">С заменой термопасты</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-blue-600">от 1 500 ₽</div>
+                      <div className="text-sm text-gray-500">1-2 часа</div>
+                    </div>
+                  </div>
+                  <div className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Замена матрицы ноутбука</h4>
+                      <p className="text-sm text-gray-600">Full HD / 4K дисплей</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-blue-600">от 3 000 ₽</div>
+                      <div className="text-sm text-gray-500">2-3 часа</div>
+                    </div>
+                  </div>
+                  <div className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Восстановление после воды</h4>
+                      <p className="text-sm text-gray-600">Диагностика и ремонт</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-blue-600">от 2 000 ₽</div>
+                      <div className="text-sm text-gray-500">1-3 дня</div>
+                    </div>
+                  </div>
+                  <div className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Установка Windows</h4>
+                      <p className="text-sm text-gray-600">С драйверами и программами</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-blue-600">от 800 ₽</div>
+                      <div className="text-sm text-gray-500">1-2 часа</div>
+                    </div>
+                  </div>
+                  <div className="p-6 flex justify-between items-center hover:bg-gray-50 transition-colors">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Диагностика</h4>
+                      <p className="text-sm text-gray-600">Любой техники</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xl font-bold text-green-600">Бесплатно</div>
+                      <div className="text-sm text-gray-500">15-30 минут</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 text-center">
+                <p className="text-gray-600 mb-4">
+                  Не нашли нужную услугу? Свяжитесь с нами для уточнения стоимости
+                </p>
+                <a href="#contact" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                  Узнать стоимость ремонта
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Как мы работаем
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-3xl font-bold">1</span>
+                  </div>
+                  <h3 className="font-semibold mb-2">Обращение</h3>
+                  <p className="text-blue-100 text-sm">
+                    Позвоните, напишите или приезжайте к нам
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-3xl font-bold">2</span>
+                  </div>
+                  <h3 className="font-semibold mb-2">Диагностика</h3>
+                  <p className="text-blue-100 text-sm">
+                    Бесплатно определим причину поломки
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-3xl font-bold">3</span>
+                  </div>
+                  <h3 className="font-semibold mb-2">Ремонт</h3>
+                  <p className="text-blue-100 text-sm">
+                    Устраним неисправность быстро и качественно
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-3xl font-bold">4</span>
+                  </div>
+                  <h3 className="font-semibold mb-2">Гарантия</h3>
+                  <p className="text-blue-100 text-sm">
+                    Выдадим гарантийный талон на все работы
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+                Контакты и адреса
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white rounded-xl p-8 shadow-sm">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Свяжитесь с нами</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <svg className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      <div>
+                        <div className="font-semibold text-gray-900">Телефон</div>
+                        <a href="tel:+79999999999" className="text-blue-600 hover:text-blue-700">
+                          +7 (999) 999-99-99
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <svg className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <div>
+                        <div className="font-semibold text-gray-900">Email</div>
+                        <a href="mailto:info@techremont.ru" className="text-blue-600 hover:text-blue-700">
+                          info@techremont.ru
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <svg className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <div>
+                        <div className="font-semibold text-gray-900">Адрес</div>
+                        <div className="text-gray-600">
+                          г. Москва, ул. Примерная, д. 123
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <svg className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <div>
+                        <div className="font-semibold text-gray-900">Режим работы</div>
+                        <div className="text-gray-600">
+                          Пн-Пт: 9:00 - 20:00<br/>
+                          Сб-Вс: 10:00 - 18:00
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-8 pt-8 border-t border-gray-200">
+                    <h4 className="font-semibold text-gray-900 mb-4">Мы в соцсетях</h4>
+                    <div className="flex space-x-4">
+                      <a href="#" className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg>
+                      </a>
+                      <a href="#" className="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg>
+                      </a>
+                      <a href="#" className="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center text-white hover:bg-pink-700 transition-colors">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-8 shadow-sm">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Оставьте заявку</h3>
+                  <form className="space-y-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        Ваше имя
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none"
+                        placeholder="Иван Иванов"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                        Телефон
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none"
+                        placeholder="+7 (999) 999-99-99"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="device" className="block text-sm font-medium text-gray-700 mb-1">
+                        Устройство
+                      </label>
+                      <input
+                        type="text"
+                        id="device"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none"
+                        placeholder="iPhone 12"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="problem" className="block text-sm font-medium text-gray-700 mb-1">
+                        Описание проблемы
+                      </label>
+                      <textarea
+                        id="problem"
+                        rows={4}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none resize-none"
+                        placeholder="Опишите неисправность..."
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    >
+                      Отправить заявку
+                    </button>
+                    <p className="text-xs text-gray-500 text-center">
+                      Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <footer className="bg-gray-900 text-gray-300 py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <span className="text-lg font-bold text-white">ТехРемонт</span>
+              </div>
+              <p className="text-sm">
+                Профессиональный ремонт электроники с 2019 года. Качество, скорость, надежность.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Услуги</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#services" className="hover:text-blue-400 transition-colors">Ремонт смартфонов</a></li>
+                <li><a href="#services" className="hover:text-blue-400 transition-colors">Ремонт ноутбуков</a></li>
+                <li><a href="#services" className="hover:text-blue-400 transition-colors">Ремонт планшетов</a></li>
+                <li><a href="#services" className="hover:text-blue-400 transition-colors">Ремонт компьютеров</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Информация</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#about" className="hover:text-blue-400 transition-colors">О компании</a></li>
+                <li><a href="#prices" className="hover:text-blue-400 transition-colors">Цены</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Гарантии</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Отзывы</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Контакты</h4>
+              <ul className="space-y-2 text-sm">
+                <li>+7 (999) 999-99-99</li>
+                <li>info@techremont.ru</li>
+                <li>г. Москва, ул. Примерная, 123</li>
+                <li>Пн-Пт: 9:00 - 20:00</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 text-center text-sm">
+            <p>&copy; 2024 ТехРемонт. Все права защищены.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
